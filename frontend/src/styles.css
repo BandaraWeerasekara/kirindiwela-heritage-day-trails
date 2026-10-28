@@ -1,0 +1,140 @@
+:root{--ink:#17251d;--forest:#1b4332;--leaf:#2d6a4f;--saffron:#d4922a;--stone:#e9ede8;--card:#fff;--line:#d5dcd3;--muted:#5b6b61}
+*{box-sizing:border-box}
+body{margin:0;background:var(--stone);color:var(--ink);font:16px/1.6 "Public Sans",sans-serif}
+h1,h3{font-family:Fraunces,serif;line-height:1.2;margin:.3em 0}
+
+nav{position:sticky;top:0;z-index:5;display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap;padding:.9rem 1.5rem;background:var(--forest);border-bottom:3px solid var(--saffron)}
+nav strong{font-family:Fraunces,serif;font-size:1.2rem;color:#fff;margin-right:auto}
+nav a{color:#d6e4da;text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent}
+nav a:hover{color:#fff}
+nav a.active{color:#fff;border-bottom-color:var(--saffron)}
+.count{display:inline-block;margin-left:.4rem;min-width:1.4rem;padding:0 .4rem;border-radius:99px;background:var(--saffron);color:var(--ink);font-size:.8rem;font-weight:600;text-align:center}
+
+main{max-width:1040px;margin:auto;padding:1.5rem}
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:2rem 1rem}
+
+.hero{margin:0 0 1.5rem;padding:3rem 2rem;border-radius:16px;color:#fff;
+  background:
+   radial-gradient(circle at 88% 25%,rgba(212,146,42,.9) 0 46px,transparent 47px),
+   radial-gradient(circle at 88% 25%,transparent 0 62px,rgba(255,255,255,.18) 63px 65px,transparent 66px 90px,rgba(255,255,255,.1) 91px 93px,transparent 94px),
+   linear-gradient(135deg,var(--forest),var(--leaf))}
+.hero h1{color:#fff;font-size:clamp(2rem,6vw,3.4rem);font-weight:800;max-width:14ch}
+.hero p{max-width:48ch;color:#e3efe7;font-size:1.05rem}
+
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0 1.4rem}
+input{padding:.65rem .9rem;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+button{padding:.55rem 1rem;border:1.5px solid var(--forest);background:#fff;color:var(--forest);border-radius:99px;font:inherit;font-weight:600;cursor:pointer;transition:background .15s,color .15s}
+button.on,button:hover:not(:disabled){background:var(--forest);color:#fff}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.1rem}
+.card{position:relative;display:flex;flex-direction:column;gap:.2rem;background:var(--card);padding:1.2rem;border-radius:14px;border:1px solid var(--line);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(23,37,29,.12)}
+.card h3{font-size:1.25rem;margin:.5rem 0 .2rem;padding-right:3.5rem}
+.card a{color:var(--forest);text-decoration:none}
+.card p{flex:1;color:#34443a;margin:.2rem 0 .8rem}
+.dist{position:absolute;top:1rem;right:1rem;padding:.15rem .6rem;border-radius:99px;background:var(--forest);color:#fff;font-size:.82rem;font-weight:600}
+
+.chips{display:flex;gap:.4rem;flex-wrap:wrap}
+.chip{padding:.05rem .6rem;border-radius:99px;font-size:.8rem;font-weight:600;background:#e5e9e3;color:var(--ink)}
+.chip.religious{background:#fbe7c3;color:#6b4300}
+.chip.heritage{background:#f0d9cf;color:#6a2f17}
+.chip.nature{background:#cfe8d7;color:#134a2a}
+.chip.cultural{background:#e4d6ee;color:#4a2466}
+.chip.meditation{background:#cde6e8;color:#0f4a50}
+
+.meta{color:var(--muted);font-size:.9rem;margin:0}
+.detail{background:var(--card);padding:1.6rem;border-radius:14px;border:1px solid var(--line);border-top:5px solid var(--saffron)}
+.detail h1{color:var(--forest)}
+iframe{width:100%;height:340px;border:0;border-radius:12px;margin-top:1.2rem}
+.form{display:grid;gap:.6rem;margin:1rem 0}
+.error{color:#a32020}
+.empty{color:var(--muted);padding:1.5rem 0;text-align:center}
+button.link{border:0;background:none;color:var(--leaf);text-decoration:underline;padding:.2rem .5rem;border-radius:4px}
+button.link:hover{background:none;color:var(--saffron)}
+ol{padding-left:1.2rem}li{padding:.4rem 0}
+table{width:100%;border-collapse:collapse}td{padding:.55rem;border-bottom:1px solid var(--line)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:600px){.hero{padding:2rem 1.2rem}nav{gap:1rem}}
+
+/* ===== Colourful cards + photos + logo + photo background ===== */
+body{
+  background-color:#e6eee3;
+  background-image:linear-gradient(180deg,rgba(228,239,228,.82),rgba(246,236,214,.9)),url("/images/background.jpg");
+  background-size:cover;background-position:center;background-attachment:fixed}
+
+.brand{display:flex;align-items:center;gap:.8rem;margin-right:auto;color:#fff;text-decoration:none;font-family:Fraunces,serif;font-size:1.6rem;font-weight:700}
+.brand img{width:48px;height:48px}
+
+.card{--c:#2d6a4f;--tint:#f1f7f2;padding:0;overflow:hidden;background:linear-gradient(180deg,var(--tint),#fff 55%);border:1px solid var(--c);border-top:5px solid var(--c)}
+.card.religious{--c:#b57a1f;--tint:#fff3d9}
+.card.heritage{--c:#a6482a;--tint:#fde9e1}
+.card.nature{--c:#2f8a4f;--tint:#e2f5e7}
+.card.cultural{--c:#7b4aa3;--tint:#f0e6f8}
+.card.meditation{--c:#1f7f88;--tint:#dcf1f3}
+.card .content{display:flex;flex-direction:column;gap:.3rem;flex:1;padding:1.3rem 1.5rem 1.6rem}
+.card h3{padding-right:0;margin:.6rem 0 .3rem}
+.card h3 a{color:var(--c)}
+.card .dist{top:1rem;right:1rem;background:var(--c);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.card button{border-color:var(--c);color:var(--c)}
+.card button:hover:not(:disabled){background:var(--c);color:#fff}
+
+.photo{position:relative;height:200px;display:grid;place-items:center;background:linear-gradient(135deg,#2d6a4f,#1b4332)}
+.photo.religious{background:linear-gradient(135deg,#e3a33a,#a8651a)}
+.photo.heritage{background:linear-gradient(135deg,#c9714f,#6a2f17)}
+.photo.nature{background:linear-gradient(135deg,#4fa56f,#134a2a)}
+.photo.cultural{background:linear-gradient(135deg,#9a6cc0,#4a2466)}
+.photo.meditation{background:linear-gradient(135deg,#4fa3ab,#0f4a50)}
+.photo .emoji{font-size:4rem;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3))}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo.big{height:360px;border-radius:14px;overflow:hidden;margin-bottom:1.4rem}
+/* ===== Nav links as buttons ===== */
+nav{gap:.8rem}
+nav a:not(.brand){
+  padding:.55rem 1.3rem;
+  border:1.5px solid rgba(255,255,255,.45);
+  border-radius:99px;
+  color:#fff;
+  font-weight:600;
+  transition:background .15s,color .15s,border-color .15s,transform .15s}
+nav a:not(.brand):hover{background:rgba(255,255,255,.16);border-color:#fff}
+nav a:not(.brand):active{transform:scale(.97)}
+nav a.active:not(.brand){
+  background:var(--saffron);
+  border-color:var(--saffron);
+  color:#17251d;
+  border-bottom-color:var(--saffron)}
+nav a:not(.brand):focus-visible{outline:3px solid #fff;outline-offset:3px}
+nav .count{background:#fff;color:var(--forest);margin-left:.5rem}
+nav a.active .count{background:var(--forest);color:#fff}
+@media (max-width:600px){.brand img{height:44px}.brand span{display:none}}
+/* ===== Footer ===== */
+footer{text-align:center;padding:2.5rem 1rem 3rem}
+.foot-name{font-weight:600;font-size:1.05rem;color:var(--forest)}
+.foot-id{margin-top:.25rem;font-size:.95rem;color:var(--muted);letter-spacing:.5px}
+/* ===== Opening times: single outlined bubble, no fill ===== */
+.time-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  padding:.45rem 1.3rem;
+  border:2px solid var(--forest);
+  border-radius:99px;
+  background:transparent;
+  color:var(--forest);
+  font-weight:500}
+.time-btn strong{font-weight:700}
+
+/* ===== Travel tips: same outlined bubble ===== */
+.tips-btn{
+  display:inline-block;
+  padding:.6rem 1.4rem;
+  border:2px solid var(--forest);
+  border-radius:26px;
+  background:transparent;
+  color:var(--forest);
+  font-weight:500;
+  line-height:1.5}
+.tips-btn strong{font-weight:700}
